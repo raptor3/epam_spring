@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean name="pizzaRepository"
+		class="ua.epam.rd.pizzadelivery.repository.TestPizzaRepository">
+		<property name="allPizzas">
+			<list>
+				<bean class="ua.epam.rd.pizzadelivery.domain.Pizza">
+					<constructor-arg value="pizzaMeat" />
+					<constructor-arg value="10" />
+					<constructor-arg name="type" value="SUPER_MEAT" />
+				</bean>
+				<bean class="ua.epam.rd.pizzadelivery.domain.Pizza">
+					<constructor-arg value="pizzaCheese" />
+					<constructor-arg value="15" />
+					<constructor-arg name="type" value="CHEESE_PIZZA" />
+				</bean>
+				<bean class="ua.epam.rd.pizzadelivery.domain.Pizza">
+					<constructor-arg value="pizzaNewYork" />
+					<constructor-arg value="20" />
+					<constructor-arg name="type" value="NEW_YORK" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<context:component-scan base-package="ua.epam.rd.pizzadelivery.repository">
+	</context:component-scan>
+	<!--<bean name="orderRepository"
+		class="ua.epam.rd.pizzadelivery.repository.TestOrderRepository" />-->
+	
+</beans>

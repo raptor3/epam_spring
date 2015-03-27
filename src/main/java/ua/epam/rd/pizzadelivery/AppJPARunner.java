@@ -19,9 +19,11 @@ public class AppJPARunner {
         pizza.setPrice(123.1);
         
         System.out.println("Before: " + pizza);
-        em.getTransaction().begin();
+        //em.getTransaction().begin();
         em.persist(pizza);
-        em.getTransaction().commit();
+        //em.getTransaction().commit();
+        
+        
         System.out.println("After: " + pizza);
         
         System.out.println(em.find(Pizza.class, new Long(1)));
